@@ -42,8 +42,28 @@ O `geradorlp` foi projetado para ser intuitivo e eficiente, permitindo que qualq
 
 Com o `geradorlp`, a criação de landing pages se torna mais acessível, segura e alinhada com o futuro da web descentralizada. 🚀
 
+---
 
-Para começar será necessário clonar o projeto, e em seguida executar os comandos abaixo para instalar as dependencias do projeto (lembre-se que se estiver utilizando o Sistema Operacional Windows é necessário utilizar o WSL):
+## ⚙️ **Instalação do Projeto**
+
+Abaixo irei apresentar duas formas de instalar o projeto para rodar locamente. Uma mais pratica e uma mais detalhada. 
+
+Para começar será necessário clonar o projeto (github). Lembre-se que se estiver utilizando o Sistema Operacional Windows é necessário utilizar o WSL.
+
+Para quem preferir uma instalação mais rapida, após concluir o clone do projeto basta entrar no diretorio do projeto:
+
+```bash
+cd geradorlp/
+```
+
+e em seguida instalar as dependencias utilizando o comando abaixo: 
+
+```bash
+npm install
+```
+Depois disso pode ir diretamente para o passo `Rodando o projeto localmente`
+
+Para quem deseja realizar a instalação manual e conhecer as principais dependências do projeto, siga as instruções abaixo. Execute os comandos indicados para instalar todas as dependências necessárias (lembre-se que se estiver utilizando o Sistema Operacional Windows é necessário utilizar o WSL):
 
 ```bash
 cd geradorlp/
@@ -85,17 +105,9 @@ export default {
 }
 ```
 
-Para que o Canister do frontend consiga gravar os assets (imagens) será necessário liberar as seguintes permissões: 
+Depois disso pode ir diretamente para o passo `Rodando o projeto localmente`
 
-```bash
-
-dfx canister call geradorlp_frontend grant_permission '(record {permission = variant {Prepare}; to_principal = principal "535yc-uxytb-gfk7h-tny7p-vjkoe-i4krp-3qmcl-uqfgr-cpgej-yqtjq-rqe"})'
-
-dfx canister call geradorlp_frontend grant_permission '(record {permission = variant {Commit}; to_principal = principal "535yc-uxytb-gfk7h-tny7p-vjkoe-i4krp-3qmcl-uqfgr-cpgej-yqtjq-rqe"})'
-
-```
-
-## Rodando o projeto localment
+## Rodando o projeto localmente
 
 Para rodar o projeto localmente execute os seguintes comandos:
 
@@ -105,4 +117,15 @@ dfx start --background
 dfx deploy
 ```
 
-copie a URL gerada e cole no seu navagador.
+Para que o Canister do frontend consiga gravar os assets (imagens) será necessário liberar as permissões apresentadas abaixo.
+Estes comandos não precisam ser executados a cada deploy, apenas no primeiro deploy ou em caso de reinstalação do Canister. 
+
+```bash
+dfx canister call geradorlp_frontend grant_permission '(record {permission = variant {Prepare}; to_principal = principal "535yc-uxytb-gfk7h-tny7p-vjkoe-i4krp-3qmcl-uqfgr-cpgej-yqtjq-rqe"})'
+```
+
+```bash
+dfx canister call geradorlp_frontend grant_permission '(record {permission = variant {Commit}; to_principal = principal "535yc-uxytb-gfk7h-tny7p-vjkoe-i4krp-3qmcl-uqfgr-cpgej-yqtjq-rqe"})'
+```
+
+Depois disso copie a URL gerada ao termino do deploy e cole no seu navagador.
