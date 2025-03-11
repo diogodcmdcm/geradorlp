@@ -46,14 +46,14 @@ Com o `geradorlp`, a criação de landing pages se torna mais acessível, segura
 
 ## ⚙️ **Instalação do Projeto**
 
-Abaixo irei apresentar duas formas de instalar o projeto para rodar locamente. Uma mais pratica e uma mais detalhada. 
+Abaixo irei apresentar duas formas de instalar o projeto para rodar locamente. Uma mais pratica e outra mais detalhada. 
 
 Para começar será necessário clonar o projeto (github). Lembre-se que se estiver utilizando o Sistema Operacional Windows é necessário utilizar o WSL.
 
 Para quem preferir uma instalação mais rapida, após concluir o clone do projeto basta entrar no diretorio do projeto:
 
 ```bash
-cd geradorlp/
+cd geradorlp
 ```
 
 e em seguida instalar as dependencias utilizando o comando abaixo: 
@@ -66,7 +66,7 @@ Depois disso pode ir diretamente para o passo `Rodando o projeto localmente`
 Para quem deseja realizar a instalação manual e conhecer as principais dependências do projeto, siga as instruções abaixo. Execute os comandos indicados para instalar todas as dependências necessárias (lembre-se que se estiver utilizando o Sistema Operacional Windows é necessário utilizar o WSL):
 
 ```bash
-cd geradorlp/
+cd geradorlp
 npm install --save @dfinity/auth-client
 npm install react-router-dom
 npm install react-helmet
@@ -105,7 +105,7 @@ export default {
 }
 ```
 
-Depois disso pode ir diretamente para o passo `Rodando o projeto localmente`
+Depois disso pode ir para o passo `Rodando o projeto localmente`
 
 ## Rodando o projeto localmente
 
