@@ -1,85 +1,108 @@
-# `geradorlp`
+# Gerador de Landing Pages On-Chain - `geradorlp`
+
+Bem-vindo ao projeto `geradorlp`, um DApp desenvolvido na **blockchain ICP** utilizando a linguagem **Motoko**. O principal objetivo deste projeto é permitir a criação de **Landing Pages 100% on-chain**, garantindo segurança, transparência e descentralização no armazenamento e publicação de páginas.
+
+As landing pages são amplamente utilizadas em estratégias de marketing e possuem diversas finalidades, como:
+
+- 🌆 **Divulgação de promoções de produtos** (especialmente no e-commerce);
+- 💼 **Apresentação de serviços** e portfólios;
+- 🗕 **Promoção e inscrição em eventos, webinars e workshops**;
+- 🎓 **Divulgação e inscrição em cursos online**;
+- ⚡ **Outras campanhas e estratégias digitais**.
+
+---
+
+## 🚀 **Como o DApp Funciona**
+
+O `geradorlp` foi projetado para ser intuitivo e eficiente, permitindo que qualquer usuário crie, edite e publique suas próprias landing pages com facilidade.
+
+- ✅ **Criação Simples**: Escolha entre templates pré-definidos, adicione seus textos e imagens, e personalize sua página conforme a necessidade.
+- ✅ **Publicação On-Chain**: Após a criação, a landing page poderá ser publicada, tornando-se acessível para qualquer pessoa via blockchain ICP.
+- ✅ **Gerenciamento de Múltiplas Páginas**: Cada usuário pode criar e gerenciar uma ou várias landing pages de forma independente.
+
+---
+
+## 🔐 **Funcionalidades Desenvolvidas**
+
+- **Conexão Segura com Internet Identity**: Os usuários podem se conectar de forma segura utilizando o sistema de identidade descentralizado da ICP.
+- **Criação e Edição Dinâmica**: É possível criar e personalizar landing pages com base em templates pré-definidos, ajustando textos e imagens conforme necessário.
+- **Publicação Imediata**: Com apenas alguns cliques, a página é publicada e disponibilizada na blockchain, garantindo acessibilidade global.
+- **Gerenciamento Simples**: Usuários têm liberdade para criar, editar ou excluir suas páginas, conforme suas estratégias de marketing evoluem.
+
+---
+
+## ⚙️ **Como Utilizar**
+
+1. **Conecte-se** ao DApp utilizando sua identidade via Internet Identity.
+2. **Escolha um template** e personalize-o com seus textos e imagens.
+3. **Publique sua landing page** diretamente na blockchain ICP.
+4. **Compartilhe o link** da sua landing page com o seu público.
+
+---
+
+Com o `geradorlp`, a criação de landing pages se torna mais acessível, segura e alinhada com o futuro da web descentralizada. 🚀
 
 
+Para começar será necessário clonar o projeto, e em seguida executar os comandos abaixo para instalar as dependencias do projeto (lembre-se que se estiver utilizando o Sistema Operacional Windows é necessário utilizar o WSL):
+
+```bash
+cd geradorlp/
 npm install --save @dfinity/auth-client
 npm install react-router-dom
 npm install react-helmet
 npm install @dfinity/identity
 npm install @dfinity/agent
 npm install @dfinity/assets
+```
 
-
-Adicionar os passos para configurar o Tailwind, pegar de outro projeto
-
-             verificar se é necessário este install (tentar sem ele)  npm install react-helmet-async
-
-Dentro do diretório frontend execute o comando abaixo:
-
+Agora realize a instalação do Tailwind (ele será utilizado para estilização do Dapp). Dentro do diretório frontend execute os comandos abaixo:
+```bash
+cd src/geradorlp_frontend
 npm install -D tailwindcss@3.4.14 postcss autoprefixer
 npx tailwindcss init -p
+```
 
-dfx canister update-settings teste_frontend --add-controller $(dfx identity get-principal)
-dfx canister call teste_frontend grant_permission '(record {permission = variant {ManagePermissions}; to_principal = principal "'$(dfx identity get-principal)'"})'
+Volte para o diretorio raiz do projeto e abra o código fonte no VS Code:
+
+```bash
+cd ../..
+code .
+```
+
+Com o VS Code aberto, localize o arquivo `tailwind.config.js`. Ele se encontra no diretorio src/geradorlp_frontend.
+Adicione a linha  content: `[ "./src/**/*.{js,jsx,ts,tsx}", ],`  
+
+O código do arquivo deverá ficar igual ao ilustrado abaixo:
+
+```bash
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [ "./src/**/*.{js,jsx,ts,tsx}", ], 
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
+
+Para que o Canister do frontend consiga gravar os assets (imagens) será necessário liberar as seguintes permissões: 
+
+```bash
 
 dfx canister call geradorlp_frontend grant_permission '(record {permission = variant {Prepare}; to_principal = principal "535yc-uxytb-gfk7h-tny7p-vjkoe-i4krp-3qmcl-uqfgr-cpgej-yqtjq-rqe"})'
 
 dfx canister call geradorlp_frontend grant_permission '(record {permission = variant {Commit}; to_principal = principal "535yc-uxytb-gfk7h-tny7p-vjkoe-i4krp-3qmcl-uqfgr-cpgej-yqtjq-rqe"})'
 
-
-Welcome to your new `geradorlp` project and to the Internet Computer development community. By default, creating a new project adds this README and some template files to your project directory. You can edit these template files to customize your project and to include your own code to speed up the development cycle.
-
-To get started, you might want to explore the project directory structure and the default configuration file. Working with this project in your development environment will not affect any production deployment or identity tokens.
-
-To learn more before you start working with `geradorlp`, see the following documentation available online:
-
-- [Quick Start](https://internetcomputer.org/docs/current/developer-docs/setup/deploy-locally)
-- [SDK Developer Tools](https://internetcomputer.org/docs/current/developer-docs/setup/install)
-- [Motoko Programming Language Guide](https://internetcomputer.org/docs/current/motoko/main/motoko)
-- [Motoko Language Quick Reference](https://internetcomputer.org/docs/current/motoko/main/language-manual)
-
-If you want to start working on your project right away, you might want to try the following commands:
-
-```bash
-cd geradorlp/
-dfx help
-dfx canister --help
 ```
 
-## Running the project locally
+## Rodando o projeto localment
 
-If you want to test your project locally, you can use the following commands:
+Para rodar o projeto localmente execute os seguintes comandos:
 
 ```bash
-# Starts the replica, running in the background
 dfx start --background
 
-# Deploys your canisters to the replica and generates your candid interface
 dfx deploy
 ```
 
-Once the job completes, your application will be available at `http://localhost:4943?canisterId={asset_canister_id}`.
-
-If you have made changes to your backend canister, you can generate a new candid interface with
-
-```bash
-npm run generate
-```
-
-at any time. This is recommended before starting the frontend development server, and will be run automatically any time you run `dfx deploy`.
-
-If you are making frontend changes, you can start a development server with
-
-```bash
-npm start
-```
-
-Which will start a server at `http://localhost:8080`, proxying API requests to the replica at port 4943.
-
-### Note on frontend environment variables
-
-If you are hosting frontend code somewhere without using DFX, you may need to make one of the following adjustments to ensure your project does not fetch the root key in production:
-
-- set`DFX_NETWORK` to `ic` if you are using Webpack
-- use your own preferred method to replace `process.env.DFX_NETWORK` in the autogenerated declarations
-  - Setting `canisters -> {asset_canister_id} -> declarations -> env_override to a string` in `dfx.json` will replace `process.env.DFX_NETWORK` with the string in the autogenerated declarations
-- Write your own `createActor` constructor
+copie a URL gerada e cole no seu navagador.
