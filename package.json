@@ -14,5 +14,13 @@
   "type": "module",
   "workspaces": [
     "src/geradorlp_frontend"
-  ]
+  ],
+  "dependencies": {
+    "@dfinity/agent": "^2.3.0",
+    "@dfinity/assets": "^2.3.0",
+    "@dfinity/auth-client": "^2.3.0",
+    "@dfinity/identity": "^2.3.0",
+    "react-helmet": "^6.1.0",
+    "react-router-dom": "^6.30.0"
+  }
 }
