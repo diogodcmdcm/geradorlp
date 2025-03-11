@@ -1,5 +1,31 @@
 # `geradorlp`
 
+
+npm install --save @dfinity/auth-client
+npm install react-router-dom
+npm install react-helmet
+npm install @dfinity/identity
+npm install @dfinity/agent
+npm install @dfinity/assets
+
+
+Adicionar os passos para configurar o Tailwind, pegar de outro projeto
+
+             verificar se é necessário este install (tentar sem ele)  npm install react-helmet-async
+
+Dentro do diretório frontend execute o comando abaixo:
+
+npm install -D tailwindcss@3.4.14 postcss autoprefixer
+npx tailwindcss init -p
+
+dfx canister update-settings teste_frontend --add-controller $(dfx identity get-principal)
+dfx canister call teste_frontend grant_permission '(record {permission = variant {ManagePermissions}; to_principal = principal "'$(dfx identity get-principal)'"})'
+
+dfx canister call geradorlp_frontend grant_permission '(record {permission = variant {Prepare}; to_principal = principal "535yc-uxytb-gfk7h-tny7p-vjkoe-i4krp-3qmcl-uqfgr-cpgej-yqtjq-rqe"})'
+
+dfx canister call geradorlp_frontend grant_permission '(record {permission = variant {Commit}; to_principal = principal "535yc-uxytb-gfk7h-tny7p-vjkoe-i4krp-3qmcl-uqfgr-cpgej-yqtjq-rqe"})'
+
+
 Welcome to your new `geradorlp` project and to the Internet Computer development community. By default, creating a new project adds this README and some template files to your project directory. You can edit these template files to customize your project and to include your own code to speed up the development cycle.
 
 To get started, you might want to explore the project directory structure and the default configuration file. Working with this project in your development environment will not affect any production deployment or identity tokens.
