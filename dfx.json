@@ -1,0 +1,26 @@
+{
+  "canisters": {
+    "geradorlp_backend": {
+      "main": "src/geradorlp_backend/main.mo",
+      "type": "motoko"
+    },
+    "geradorlp_frontend": {
+      "dependencies": [
+        "geradorlp_backend"
+      ],
+      "source": [
+        "src/geradorlp_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "geradorlp_frontend"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
