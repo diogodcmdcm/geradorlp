@@ -316,25 +316,4 @@ actor {
         Buffer.toArray(filteredProps);
     };        
 
-    /*
-    private func getSection(principal: Text, nomePage: Text, identificadorSection: Text) : ?Section {
-        var sTemp : Section = { principal = principal;
-                                nomePage = nomePage; 
-                                identificador = identificadorSection;
-                                exibir = false; 
-                            };               
-        func procurar(p1: Section, p2: Section): Bool {
-            p1.nomePage == p2.nomePage and p1.identificador == p2.identificador;
-        };      
-
-        let index : ?Nat = Buffer.indexOf<Section>(sTemp, sectionBuffer, procurar); 
-
-        switch(index){
-            case(null){ return null};
-            case(?i){              
-                return ?sectionBuffer.get(i);                          
-            };
-        };  
-    } */
-
 };
